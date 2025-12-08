@@ -1,0 +1,4 @@
+things that should be kept track of in configs:
+
+1. tab width
+2. completion keys used
