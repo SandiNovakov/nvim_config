@@ -1,6 +1,5 @@
 --config
 local tab_width = 4 --num spaces for tabs, int.
-
 --end config
 
 vim.opt.nu = true
@@ -27,6 +26,6 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 50 --taken from theprimagen's config, might be too fast.
 
 vim.opt.colorcolumn = "80"
