@@ -13,5 +13,6 @@ vim.opt.rtp:prepend(lazypath)
  
 require("lazy").setup({
     spec = "cruxade.lazy",
-    change_detection = { notify = false }
+    change_detection = { notify = false },
+	{"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"}
    })
