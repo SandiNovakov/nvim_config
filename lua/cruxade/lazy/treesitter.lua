@@ -8,7 +8,20 @@ return {
 					"vimdoc",
 					"lua",
 					"bash",
-					"python"
+					"python",
+					"lua",
+					"vim",
+					"javascript",
+					"typescript",
+					"vue",
+					"html",
+					"css",
+					"json",
+					"yaml",
+					"sql",
+					"dockerfile",
+					"gitignore"
+
 				},
 				-- Install parsers synchronously (only applied to `ensure_installed`)
 				sync_install = false,

@@ -1,4 +1,7 @@
-things that should be kept track of in configs:
+more things I should add>
+remaps.
 
-1. tab width
-2. completion keys used
+
+
+need one for saving a file with C-s
+Look at primagen's video for inspo.
