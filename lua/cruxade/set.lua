@@ -2,6 +2,8 @@
 local tab_width = 4 --num spaces for tabs, int.
 --end config
 
+vim.opt.clipboard = "unnamedplus"
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
