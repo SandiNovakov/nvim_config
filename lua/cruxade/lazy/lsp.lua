@@ -12,6 +12,19 @@ local my_lsps = {
 	"sqlls"
 }
 
+local my_formatters = {
+  "stylua",
+  "black",
+  "isort",
+  "prettier",
+  "prettierd",      -- Faster prettier daemon
+  "shfmt",
+  "sqlfmt",
+  "hadolint",       -- Dockerfile linter (not a formatter but useful)
+  "sqlfluff",       -- Alternative SQL formatter/linter
+}
+
+
 local root_files = {
 	'.luarc.json',
 	'.luarc.jsonc',
@@ -66,8 +79,7 @@ return {
 				end
 			}
 		})
-
-		local cmp_select = { behavior = cmp.SelectBehavior.Select }
+    		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 		cmp.setup({
 			snippet = {
