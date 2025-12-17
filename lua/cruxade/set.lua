@@ -1,14 +1,10 @@
---config
-local tab_width = 4 --num spaces for tabs, int.
---end config
-
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = tab_width
-vim.opt.shiftwidth = tab_width
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 
 vim.opt.smartindent = true
 
@@ -29,5 +25,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 --vim.opt.updatetime = 50 --taken from theprimagen's config, might be too fast.
+--update: it was, in fact, too fast.
 
 vim.opt.colorcolumn = "80"

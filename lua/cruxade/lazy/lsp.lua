@@ -79,7 +79,7 @@ return {
 				end
 			}
 		})
-    		local cmp_select = { behavior = cmp.SelectBehavior.Select }
+		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 		cmp.setup({
 			snippet = {
