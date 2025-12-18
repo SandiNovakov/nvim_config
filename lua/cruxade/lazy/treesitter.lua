@@ -2,27 +2,11 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
+			local lang = require("cruxade.lang")
+
 			require("nvim-treesitter.configs").setup({
 				-- A list of parser names, or "all"
-				ensure_installed = {
-					"vimdoc",
-					"lua",
-					"bash",
-					"python",
-					"lua",
-					"vim",
-					"javascript",
-					"typescript",
-					"vue",
-					"html",
-					"css",
-					"json",
-					"yaml",
-					"sql",
-					"dockerfile",
-					"gitignore"
-
-				},
+				ensure_installed = lang.treesitter,
 				-- Install parsers synchronously (only applied to `ensure_installed`)
 				sync_install = false,
 

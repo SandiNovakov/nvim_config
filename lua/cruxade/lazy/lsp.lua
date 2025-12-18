@@ -1,39 +1,12 @@
--- List your LSP servers here
-local my_lsps = {
-	"pyright",
-	"ts_ls",        -- TypeScript / JavaScript
-	"html",
-	"cssls",
-	"eslint",
-	"jsonls",
-	"yamlls",
-	"dockerls",
-	"bashls",
-	"sqlls"
-}
-
-local my_formatters = {
-  "stylua",
-  "black",
-  "isort",
-  "prettier",
-  "prettierd",      -- Faster prettier daemon
-  "shfmt",
-  "sqlfmt",
-  "hadolint",       -- Dockerfile linter (not a formatter but useful)
-  "sqlfluff",       -- Alternative SQL formatter/linter
-}
-
-
 local root_files = {
-	'.luarc.json',
-	'.luarc.jsonc',
-	'.luacheckrc',
-	'.stylua.toml',
-	'stylua.toml',
-	'selene.toml',
-	'selene.yml',
-	'.git',
+	".luarc.json",
+	".luarc.jsonc",
+	".luacheckrc",
+	".stylua.toml",
+	"stylua.toml",
+	"selene.toml",
+	"selene.yml",
+	".git",
 }
 
 return {
@@ -53,9 +26,7 @@ return {
 	},
 
 	config = function()
-		require("conform").setup({
-			formatters_by_ft = {}
-		})
+		local lang = require("cruxade.lang")
 
 		local cmp = require("cmp")
 		local cmp_lsp = require("cmp_nvim_lsp")
@@ -69,37 +40,37 @@ return {
 		require("fidget").setup({})
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-			ensure_installed = my_lsps,
+			ensure_installed = lang.lsps,
 			handlers = {
 				-- default handler for all servers
 				function(server_name)
-					require("lspconfig")[server_name].setup {
-						capabilities = capabilities
-					}
-				end
-			}
+					require("lspconfig")[server_name].setup({
+						capabilities = capabilities,
+					})
+				end,
+			},
 		})
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 		cmp.setup({
 			snippet = {
 				expand = function(args)
-					require('luasnip').lsp_expand(args.body)
+					require("luasnip").lsp_expand(args.body)
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
-				['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-				['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-				['<C-l>'] = cmp.mapping.confirm({ select = true }),
+				["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
+				["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
+				["<C-l>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
 				{ name = "copilot", group_index = 2 },
-				{ name = 'nvim_lsp' },
-				{ name = 'luasnip' },
+				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
 			}, {
-					{ name = 'buffer' },
-				})
+				{ name = "buffer" },
+			}),
 		})
 
 		vim.diagnostic.config({
@@ -112,5 +83,5 @@ return {
 				prefix = "",
 			},
 		})
-	end
+	end,
 }
