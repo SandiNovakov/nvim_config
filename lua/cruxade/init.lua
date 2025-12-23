@@ -7,3 +7,4 @@ require("cruxade.lazy_init")
 
 -- this should all go somewhere else tbh --
 vim.cmd([[colorscheme tokyonight-night]])
+--vim.cmd([[colorscheme gruber-darker]])
