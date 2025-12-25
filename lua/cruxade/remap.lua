@@ -15,7 +15,6 @@ vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save file" })
 -- returning to normal mode
 vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-vim.keymap.set("t", "<C-c>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- allows inserting new lines without moving cursor
 local function insert_line_below_stay()
@@ -34,7 +33,7 @@ vim.keymap.set("n", "<A-o>", insert_line_below_stay, { desc = "Insert line below
 vim.keymap.set("n", "<A-O>", insert_line_above_stay, { desc = "Insert line above (stay)" })
 
 -- quick open terminal in vsp
-vim.keymap.set("n", "<leader>t", ":vsp | term<CR>i", { desc = "Terminal in vertical split (right)" })
+vim.keymap.set("n", "<leader>t", ":vsp | term<CR><C-w><C-r>i", { desc = "Terminal in vertical split (right)" })
 
 -- quick reload config
 vim.keymap.set("n", "<leader><leader>", function()
