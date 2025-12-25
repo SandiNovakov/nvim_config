@@ -51,3 +51,5 @@ vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result centered" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result centered" })
 
 vim.keymap.set("n", "<leader>ls", ":Oil<CR>", { desc = "Open explorer" })
+
+vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Exit" })
