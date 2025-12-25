@@ -54,3 +54,9 @@ vim.keymap.set("n", "<leader>ls", ":Oil<CR>", { desc = "Open explorer" })
 
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Exit" })
 vim.keymap.set("n", "<leader>nf", ":e %:h/", { desc = "New file in current directory" })
+
+vim.keymap.set("n", "gg", "gg0", { desc = "gg" })
+vim.keymap.set("n", "G", "G$", { desc = "A more sensible G" })
+
+vim.keymap.set("n", "o", "o<esc>", { desc = "o but it doesn't enter insert mode" })
+vim.keymap.set("n", "O", "O<esc>", { desc = "O but it doesn't enter insert mode" })
