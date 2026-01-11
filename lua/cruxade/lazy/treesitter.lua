@@ -9,6 +9,8 @@ return {
 			install_dir = vim.fn.stdpath("data") .. "/site",
 			ensure_installed = lang.treesitter,
 			auto_install = true,
+			highlight = { enable = true },
+			indent = { enable = true },
 		})
 	end,
 }
