@@ -45,3 +45,4 @@ vim.keymap.set("n", "G", "G$", { desc = "A more sensible G" })
 
 vim.keymap.set("n", "o", "o<esc>", { desc = "o but it doesn't enter insert mode" })
 vim.keymap.set("n", "O", "O<esc>", { desc = "O but it doesn't enter insert mode" })
+vim.keymap.set("n", "ww", ":set wrap!<CR>:set linebreak<CR>", { desc = "toggle word wrap" })
