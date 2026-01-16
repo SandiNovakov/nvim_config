@@ -1,7 +1,0 @@
-more things I should add>
-remaps.
-
-
-
-need one for saving a file with C-s
-Look at primagen's video for inspo.
