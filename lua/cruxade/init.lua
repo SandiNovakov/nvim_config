@@ -21,3 +21,5 @@ vim.api.nvim_create_user_command("GiveUsEyes", function()
 		vim.api.nvim_set_hl(0, g, { bg = "NONE" })
 	end
 end, {})
+
+vim.cmd.colorscheme("tokyonight-night")
