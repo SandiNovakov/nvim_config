@@ -5,6 +5,7 @@ vim.g.mapleader = " "
 require("cruxade.set")
 require("cruxade.lazy_init")
 require("cruxade.remap")
+require("cruxade.theme")
 
 vim.api.nvim_create_user_command("GiveUsEyes", function()
 	local groups = {
@@ -22,4 +23,4 @@ vim.api.nvim_create_user_command("GiveUsEyes", function()
 	end
 end, {})
 
-vim.cmd.colorscheme("tokyonight-night")
+--vim.cmd.colorscheme("tokyonight-night")
