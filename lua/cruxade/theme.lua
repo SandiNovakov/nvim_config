@@ -41,7 +41,43 @@ function _G.set_theme(name)
 	end
 end
 
--- Create a user command
 vim.api.nvim_create_user_command("Theme", function(opts)
 	set_theme(opts.args)
-end, { nargs = 1 })
+end, {
+	nargs = 1,
+	complete = function(arg_lead, cmd_line, cursor_pos)
+		-- Get all runtime paths
+		local runtime_paths = vim.api.nvim_get_runtime_file("colors/*.vim", true)
+		local lua_themes = vim.api.nvim_get_runtime_file("lua/colors/*.lua", true)
+
+		local themes = {}
+
+		-- Extract theme names from .vim files
+		for _, path in ipairs(runtime_paths) do
+			local theme = path:match(".*/([^/]+)%.vim$")
+			if theme and (arg_lead == "" or theme:lower():find(arg_lead:lower(), 1, true)) then
+				table.insert(themes, theme)
+			end
+		end
+
+		-- Extract theme names from .lua files
+		for _, path in ipairs(lua_themes) do
+			local theme = path:match(".*/([^/]+)%.lua$")
+			if theme and (arg_lead == "" or theme:lower():find(arg_lead:lower(), 1, true)) then
+				table.insert(themes, theme)
+			end
+		end
+
+		-- Also include built-in themes
+		local builtin = vim.fn.getcompletion(arg_lead .. "*", "color")
+		for _, theme in ipairs(builtin) do
+			if not vim.tbl_contains(themes, theme) then
+				table.insert(themes, theme)
+			end
+		end
+
+		-- Remove duplicates and sort
+		themes = vim.fn.uniq(vim.fn.sort(themes))
+		return themes
+	end,
+})
