@@ -97,6 +97,7 @@ local mason = {
 
 	-- Diagnostics/tools
 	"codespell", -- Spell checker for code
+	"gdtoolkit",
 }
 
 local lsps = {

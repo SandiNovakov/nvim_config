@@ -37,6 +37,11 @@ return {
 						capabilities = capabilities,
 					})
 				end,
+				["gdscript"] = function()
+					require("lspconfig").gdscript.setup({
+						capabilities = capabilities,
+					})
+				end,
 			},
 		})
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -54,11 +59,8 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
-				{ name = "copilot", group_index = 2 },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-			}, {
-				{ name = "buffer" },
 			}),
 		})
 
