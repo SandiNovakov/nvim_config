@@ -42,6 +42,7 @@ local treesitter = {
 	"html",
 	"css",
 	"markdown",
+	"gdscript",
 }
 
 local conform = {
