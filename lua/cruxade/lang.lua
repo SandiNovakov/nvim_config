@@ -74,7 +74,7 @@ local conform = {
 
 	-- Config files
 	--dockerfile = { "hadolint" },
-	sql = { "sqlfluff" },
+	--sql = { "sqlfluff" },
 }
 
 local mason = {
@@ -85,7 +85,7 @@ local mason = {
 	"black", -- Python formatter
 	"clang-format", -- C/C++ formatter
 	"shfmt", -- Shell formatter
-	"sqlfluff", -- SQL formatter
+	--"sqlfluff", -- SQL formatter
 
 	-- Linters
 	"pylint", -- Python linter
@@ -108,7 +108,7 @@ local lsps = {
 	"clangd", -- C/C++
 	"lua_ls", -- Lua
 	"bashls", -- Bash
-	"sqlls", -- SQL
+	"sqls", -- SQL
 
 	-- Web development
 	"html", -- HTML
