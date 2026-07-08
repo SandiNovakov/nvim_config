@@ -42,7 +42,7 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "filename" },
+				lualine_b = { "branch", "filename", "encoding" },
 				lualine_c = {},
 				lualine_x = { "selectioncount", "lsp_status" },
 				lualine_y = { "location", "progress" },
