@@ -14,7 +14,7 @@ vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save file" })
 
 -- returning to normal mode
 vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<C-w>", "<C-\\><C-n><C-w>", { desc = "Exit terminal mode" })
 
 -- quick open terminal in vsp
 vim.keymap.set("n", "<leader>t", ":vsp | term<CR><C-w><C-r>i", { desc = "Terminal in vertical split (right)" })

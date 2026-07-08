@@ -30,6 +30,6 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.colorcolumn = "80"
 
---vim.opt.list = true
+vim.opt.list = true
 
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", space = "·" }
+vim.opt.listchars = { tab = "» ", trail = "·", space = "·" }

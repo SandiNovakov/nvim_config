@@ -108,7 +108,7 @@ local lsps = {
 	"clangd", -- C/C++
 	"lua_ls", -- Lua
 	"bashls", -- Bash
-	"sqls", -- SQL
+	--"sqls", -- SQL
 
 	-- Web development
 	"html", -- HTML

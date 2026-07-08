@@ -1,5 +1,3 @@
-print("hello from cruxade with love!")
-
 vim.g.mapleader = " "
 
 require("cruxade.set")
