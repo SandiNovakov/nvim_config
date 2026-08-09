@@ -124,6 +124,7 @@ local lsps = {
 
 	-- Other
 	"vimls", -- Vimscript
+	"pico8_ls",
 }
 
 return {

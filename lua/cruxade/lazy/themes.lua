@@ -13,4 +13,10 @@ return {
 			},
 		},
 	},
+	{
+		"markbahnman/vim-pico8-color",
+	},
+	{
+		"justinj/vim-pico8-syntax",
+	},
 }
