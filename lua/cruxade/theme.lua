@@ -1,17 +1,22 @@
 -- ~/.config/nvim/after/plugin/theme.lua
 local theme_file = vim.fn.stdpath("data") .. "/theme"
 
--- Save current theme on VimLeave
-vim.api.nvim_create_autocmd("VimLeave", {
-	callback = function()
-		local current_theme = vim.g.colors_name or "default"
-		local file = io.open(theme_file, "w")
-		if file then
-			file:write(current_theme)
-			file:close()
-		end
-	end,
-})
+-- The name last passed to `:Theme`/set_theme, kept separately from
+-- vim.g.colors_name since some colorschemes self-report the wrong name
+-- (e.g. pico8-darker used to report itself as "pico8").
+local current_theme = "habamax"
+
+-- Helper function to change theme
+local function set_theme(name)
+	local ok = pcall(vim.cmd.colorscheme, name)
+	if ok then
+		current_theme = name
+		print("Theme set to: " .. name)
+	else
+		print("Theme " .. name .. " not found!")
+	end
+end
+_G.set_theme = set_theme
 
 -- Load theme on startup
 local file = io.open(theme_file, "r")
@@ -20,26 +25,23 @@ if file then
 	file:close()
 
 	if saved_theme then
-		-- Try to load saved theme, fallback if it fails
-		local ok, _ = pcall(vim.cmd.colorscheme, saved_theme)
-		if not ok then
-			vim.cmd.colorscheme("habamax") -- Your fallback theme
-		end
+		set_theme(saved_theme)
 	end
 else
 	-- First run or no saved theme
-	vim.cmd.colorscheme("habamax")
+	set_theme("habamax")
 end
 
--- Helper function to change theme
-function _G.set_theme(name)
-	local ok, _ = pcall(vim.cmd.colorscheme, name)
-	if ok then
-		print("Theme set to: " .. name)
-	else
-		print("Theme " .. name .. " not found!")
-	end
-end
+-- Save current theme on VimLeave
+vim.api.nvim_create_autocmd("VimLeave", {
+	callback = function()
+		local out = io.open(theme_file, "w")
+		if out then
+			out:write(current_theme)
+			out:close()
+		end
+	end,
+})
 
 vim.api.nvim_create_user_command("Theme", function(opts)
 	set_theme(opts.args)
